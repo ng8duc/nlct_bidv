@@ -1,0 +1,173 @@
+/* ============================================================
+   report-nav.css
+   Sticky navigation + chart grid layout cho report.qmd
+   ============================================================ */
+
+/* ----- Smooth scroll ----- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+  /* Bằng chiều cao 56px của .report-nav để cuộn sát lên ngay dưới thanh nav */
+}
+
+/* ----- Ẩn default title block (dùng nav thay thế) ----- */
+#title-block-header {
+  display: none;
+}
+
+/* ----- Sticky Navigation Bar ----- */
+.report-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Căn giữa toàn bộ thanh điều hướng */
+  gap: 0;
+  background: linear-gradient(135deg, #005452 0%, #006b68 50%, #13AE8E 100%);
+  padding: 0 1.5rem;
+  height: 56px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Quarto wraps nav items in <p> tag — neutralize it */
+.report-nav>p {
+  margin: 0;
+  display: contents;
+}
+
+.report-nav .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Quarto wraps img in <p> inside .nav-logo — fix */
+.report-nav .nav-logo p {
+  margin: 0;
+  line-height: 0;
+}
+
+.report-nav .nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.report-nav .nav-item {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.report-nav .nav-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.report-nav .nav-item.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ----- Section styling ----- */
+.report-section {
+  padding: 0.5rem 1.5rem 1rem 1.5rem !important;
+  /* Giảm padding-bottom từ 2rem xuống 1rem */
+  max-width: 1920px;
+  margin: 0 auto !important;
+  /* Giảm margin-top từ 2rem xuống 1rem và dùng !important để override các style mặc định */
+}
+
+.report-section>h1 {
+  color: #1a2332;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #006b68;
+}
+
+/* ----- Chart grid: 3 cột, tỷ lệ 3:2, min 600x400 ----- */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.chart-item {
+  min-height: 400px;
+  aspect-ratio: 3 / 2;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+  padding: 1.25rem;
+  /* Thêm padding đệm bên trong để các biểu đồ không bị chồng lấp và sát viền */
+  box-sizing: border-box;
+}
+
+.chart-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Force Highcharts widgets to fill their chart-item container */
+.chart-item .cell,
+.chart-item .cell-output-display {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-item .highchart.html-widget,
+.chart-item .html-widget {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Override Quarto html-fill-item which can break layout */
+.chart-item .html-fill-item {
+  flex: none;
+  min-height: 0;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 1500px) {
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-nav {
+    padding: 0 0.75rem;
+    justify-content: flex-start;
+    /* Reset về căn trái trên mobile để cuộn ngang không bị lỗi mất phần tử */
+  }
+
+  .report-nav .nav-item {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .report-section {
+    padding: 1.5rem 1rem;
+  }
+}

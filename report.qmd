@@ -1,0 +1,452 @@
+---
+title: "Chỉ tiêu tài chính các NHTM"
+format: 
+  html:
+    theme: 
+      - flatly
+      - assets/custom.scss
+    toc: false
+    embed-resources: false
+    page-layout: custom
+    css: assets/report-nav.css
+execute:
+  echo: false
+  warning: false
+---
+
+```{r, echo=FALSE}
+library(targets)
+source("R/config.R")
+
+# Tải danh sách dataframe đã được lưu cache trong targets pipeline
+all_tables <- tar_read(all_tables)
+
+# Unpack toàn bộ dataframe trong list ra môi trường Global Environment (.GlobalEnv)
+invisible(list2env(all_tables, envir = .GlobalEnv))
+```
+
+::: {.report-nav}
+
+::: {.nav-logo}
+![](assets/logo.png)
+:::
+
+[Quy mô - Thị phần](#quy-mô---thị-phần){.nav-item}
+[An toàn vốn](#an-toàn-vốn){.nav-item}
+[Chất lượng tài sản](#chất-lượng-tài-sản){.nav-item}
+[Lợi nhuận](#lợi-nhuận){.nav-item}
+[Hiệu quả](#hiệu-quả){.nav-item}
+[Thanh khoản](#thanh-khoản){.nav-item}
+
+:::
+
+::: {.report-section}
+
+# Quy mô - Thị phần
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/tts.R")
+chart_tts
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/tin_dung.R")
+chart_tin_dung
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/huy_dong_von.R")
+chart_huy_dong_von
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/thi_phan_tin_dung.R")
+chart_thi_phan_tin_dung
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/thi_phan_tien_gui.R")
+chart_thi_phan_tien_gui
+```
+::::
+
+:::
+
+:::
+
+::: {.report-section}
+
+# An toàn vốn
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/vcsh_tts.R")
+chart_vcsh_tts
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/vcsh_tts_rieng.R")
+chart_vcsh_tts_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/car.R")
+chart_car
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/vcsh.R")
+chart_vcsh
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/von_dieu_le.R")
+chart_von_dieu_le
+```
+::::
+
+:::
+
+:::
+
+::: {.report-section}
+
+# Chất lượng tài sản
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_no_xau.R")
+chart_ty_le_no_xau
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/quy_mo_no_xau.R")
+chart_quy_mo_no_xau
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/quy_mo_no_nhom_2.R")
+chart_quy_mo_no_nhom_2
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_bao_phu_no_xau_rieng.R")
+chart_ty_le_bao_phu_no_xau_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_bao_phu_no_xau_chung.R")
+chart_ty_le_bao_phu_no_xau_chung
+```
+::::
+
+:::
+
+:::
+
+::: {.report-section}
+
+# Lợi nhuận
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/cltc.R")
+chart_cltc
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/cltc_rieng.R")
+chart_cltc_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/lntt.R")
+chart_lntt
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/lntt_rieng.R")
+chart_lntt_rieng
+```
+::::
+
+:::
+
+:::
+
+::: {.report-section}
+
+# Hiệu quả
+
+## ROA, ROE
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/roa.R")
+chart_roa
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/roa_rieng.R")
+chart_roa_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/roe.R")
+chart_roe
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/roe_rieng.R")
+chart_roe_rieng
+```
+::::
+
+:::
+
+## Thu từ lãi
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/thu_lai.R")
+chart_thu_lai
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_trong_thu_lai.R")
+chart_ty_trong_thu_lai
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_trong_thu_lai_rieng.R")
+chart_ty_trong_thu_lai_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/nim.R")
+chart_nim
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/nim_rieng.R")
+chart_nim_rieng
+```
+::::
+
+:::
+
+## Thu ngoài lãi
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/co_cau_thu_ngoai_lai.R")
+chart_co_cau_thu_ngoai_lai
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_trong_thu_dv.R")
+chart_ty_trong_thu_dv
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_trong_thu_dv_rieng.R")
+chart_ty_trong_thu_dv_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/thu_dvr.R")
+chart_thu_dvr
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/thu_fx.R")
+chart_thu_fx
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/thu_ck.R")
+chart_thu_ck
+```
+::::
+
+:::
+
+## Chi phí
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/cir.R")
+chart_cir
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/cir_rieng.R")
+chart_cir_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/dprr.R")
+chart_dprr
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/dprr_rieng.R")
+chart_dprr_rieng
+```
+::::
+:::
+
+:::
+
+::: {.report-section}
+
+# Thanh khoản
+
+::: {.chart-grid}
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_du_no_huy_dong.R")
+chart_ty_le_du_no_huy_dong
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_du_no_tdh.R")
+chart_ty_le_du_no_tdh
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_du_no_tdh_rieng.R")
+chart_ty_le_du_no_tdh_rieng
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/ty_le_casa.R")
+chart_ty_le_casa
+```
+::::
+
+:::
+
+:::
+
+```{=html}
+<script>
+// Scroll spy: highlight active nav item based on scroll position
+(function() {
+  const navItems = document.querySelectorAll('.report-nav .nav-item');
+  const sections = [];
+  
+  navItems.forEach(function(item) {
+    const href = item.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const id = href.substring(1);
+      const target = document.getElementById(id);
+      if (target) sections.push({ el: target, link: item });
+    }
+  });
+  
+  if (!sections.length) return;
+  
+  function onScroll() {
+    const scrollY = window.scrollY + 80;
+    let current = sections[0];
+    
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
+      }
+    }
+    
+    navItems.forEach(function(item) { item.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+  
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+```

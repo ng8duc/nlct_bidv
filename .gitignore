@@ -1,0 +1,23 @@
+# Cloudflare Wrangler local cache
+.wrangler/
+
+# Quarto & R output files (Local tests)
+*.html
+/build/
+/.quarto/
+/*_files/
+/*_cache/
+
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+
+# AI Agents
+.agents/
+
+# Ignore start here.R
+start here.R
+
+# R targets cache
+/_targets/

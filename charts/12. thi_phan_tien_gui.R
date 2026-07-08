@@ -79,5 +79,5 @@ plot_thi_phan_tien_gui <- function(df){
     )
 }
 
-plot_thi_phan_tien_gui(df1)
-plot_thi_phan_tien_gui(df2)
+chart_thi_phan_tien_gui1 <- plot_thi_phan_tien_gui(df1)
+chart_thi_phan_tien_gui2 <- plot_thi_phan_tien_gui(df2)

@@ -29,7 +29,7 @@ df1 <- df1 %>%
   mutate(name = factor(name, levels = order_names))
 
 
-highchart() %>%
+chart_chi_phi_dprr <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Chi phí DPRR tín dụng (nghìn tỷ đồng)"),
@@ -51,7 +51,7 @@ highchart() %>%
     data = df2,
     mapping = hcaes(x = name, y = value / 1000),
     type = "column",
-    name = str_glue("{strftime(max(df2$yq) + months(3) - days(1), format = '%d/%m/%Y')}"),
+    name = ifelse(month(REF_DATE) == 10, year(REF_DATE), str_glue("{month(REF_DATE)+2}T/year(CUR_DATE)")),
     color = "#006b68",
     yAxis = 0,
     tooltip = list(
@@ -62,7 +62,7 @@ highchart() %>%
     data = df1,
     mapping = hcaes(x = name, y = value / 1000),
     type = "column",
-    name = str_glue("{strftime(max(df1$yq) + months(3) - days(1), format = '%d/%m/%Y')}"),
+    name = ifelse(month(CUR_DATE) == 10, year(CUR_DATE), str_glue("{month(CUR_DATE)+2}T/year(CUR_DATE)")),
     color = "#fdb71a",
     yAxis = 0,
     dataLabels = list(
@@ -106,6 +106,6 @@ highchart() %>%
   hc_chart(zoomType = "x") %>% 
   hc_title(
     align = "center",
-    text = "Vốn chủ sở hữu của 11 NHTM quy mô lớn",
+    text = "Chi phí DPRR nợ xấu của 11 NHTM quy mô lớn",
     style = list(fontWeight = "bold", fontSize = "16px", color = "#333333")
   )

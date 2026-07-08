@@ -99,10 +99,10 @@ html {
   border-bottom: 3px solid #006b68;
 }
 
-/* ----- Chart grid: 3 cột, tỷ lệ 3:2, min 600x400 ----- */
+/* ----- Chart grid: 2 cột, tỷ lệ 3:2, min 600x400 ----- */
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 

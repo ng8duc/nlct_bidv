@@ -55,7 +55,7 @@ df1 <- df1 %>%
   mutate(name = factor(name, levels = order_names))
 
 
-highchart() %>%
+chart_chi_phi_nhan_vien_binh_quan <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Chi phí nhân viên (triệu đồng)"),

@@ -19,7 +19,7 @@ df2 <- df %>%
 df1 <- df1 %>% 
   mutate(name = factor(name, levels = order_names))
 
-highchart() %>% 
+chart_ty_le_du_no_huy_dong <- highchart() %>% 
   hc_yAxis(
     title = list(text = "%"),
     gridLineColor = "#e6e6e6"
@@ -38,7 +38,7 @@ highchart() %>%
     yAxis = 0,
     dataLabels = list(
       enabled = TRUE,
-      format = "{point.y:,.2f}%", # Hiển thị nhãn giá trị với 2 chữ số thập phân
+      format = "{point.y:,.1f}%", # Hiển thị nhãn giá trị với 2 chữ số thập phân
       style = list(fontSize = "10px")
     ),
     tooltip = list(
@@ -54,7 +54,7 @@ highchart() %>%
     yAxis = 0,
     dataLabels = list(
       enabled = TRUE,
-      format = "{point.y:,.2f}%", # Hiển thị nhãn giá trị với 2 chữ số thập phân
+      format = "{point.y:,.1f}%", # Hiển thị nhãn giá trị với 2 chữ số thập phân
       style = list(fontSize = "10px")
     ),
     tooltip = list(

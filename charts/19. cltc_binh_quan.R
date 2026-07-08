@@ -55,7 +55,7 @@ df1 <- df1 %>%
   mutate(name = factor(name, levels = order_names))
 
 
-highchart() %>%
+chart_cltc_binh_quan <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Chênh lệch thu chi (tỷ đồng)"),
@@ -81,7 +81,7 @@ highchart() %>%
     color = "#006b68",
     yAxis = 0,
     tooltip = list(
-      valueSuffix = " nghìn tỷ đồng"
+      valueSuffix = " tỷ đồng"
     )
   ) %>%
   hc_add_series(

@@ -81,5 +81,5 @@ plot_thi_phan_tin_dung <- function(df) {
     )
 }
 
-plot_thi_phan_tin_dung(df1)
-plot_thi_phan_tin_dung(df2)
+chart_thi_phan_tin_dung1 <- plot_thi_phan_tin_dung(df1)
+chart_thi_phan_tin_dung2 <- plot_thi_phan_tin_dung(df2)

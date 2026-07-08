@@ -27,7 +27,7 @@ df2 <- df %>%
 df1 <- df1 %>% 
   mutate(name = factor(name, levels = order_names))
 
-highchart() %>%
+chart_tin_dung <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Dư nợ tín dụng (nghìn tỷ đồng)"),

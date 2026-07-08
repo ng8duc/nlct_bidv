@@ -92,6 +92,6 @@ plot_co_cau_thu_nhap <- function(df) {
     )
 }
 
-plot_co_cau_thu_nhap(df = df1)
-plot_co_cau_thu_nhap(df = df2)
+chart_co_cau_thu_nhap1 <- plot_co_cau_thu_nhap(df = df1)
+chart_co_cau_thu_nhap2 <- plot_co_cau_thu_nhap(df = df2)
 

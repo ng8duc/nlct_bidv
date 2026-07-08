@@ -102,6 +102,6 @@ plot_co_cau_thu_ngoai_lai <- function(df) {
     )
 }
 
-plot_co_cau_thu_ngoai_lai(df = df1)
-plot_co_cau_thu_ngoai_lai(df = df2)
+chart_co_cau_thu_ngoai_lai1 <- plot_co_cau_thu_ngoai_lai(df = df1)
+chart_co_cau_thu_ngoai_lai2 <- plot_co_cau_thu_ngoai_lai(df = df2)
 

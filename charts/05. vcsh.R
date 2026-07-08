@@ -28,7 +28,7 @@ df1 <- df1 %>%
   mutate(name = factor(name, levels = order_names))
 
 
-highchart() %>%
+chart_vcsh <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Vốn chủ sở hữu (nghìn tỷ đồng)"),

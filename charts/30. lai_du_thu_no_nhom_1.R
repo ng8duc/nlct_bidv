@@ -26,7 +26,7 @@ df2 <- df %>%
 df1 <- df1 %>% 
   mutate(name = factor(name, levels = order_names))
 
-highchart() %>% 
+chart_lai_du_thu_no_nhom_1 <- highchart() %>% 
   hc_yAxis(
     title = list(text = "%"),
     gridLineColor = "#e6e6e6"

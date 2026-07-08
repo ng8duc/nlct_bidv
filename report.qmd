@@ -31,100 +31,48 @@ invisible(list2env(all_tables, envir = .GlobalEnv))
 ![](assets/logo.png)
 :::
 
-[Quy mô - Thị phần](#quy-mô---thị-phần){.nav-item}
-[An toàn vốn](#an-toàn-vốn){.nav-item}
-[Chất lượng tài sản](#chất-lượng-tài-sản){.nav-item}
-[Lợi nhuận](#lợi-nhuận){.nav-item}
+[Năng lực vốn](#năng-lực-vốn){.nav-item}
+[Quy mô và chất lượng tài sản](#quy-mô-và-chất-lượng-tài-sản){.nav-item}
+[Quản trị điều hành](#quản-trị-điều-hành){.nav-item}
 [Hiệu quả](#hiệu-quả){.nav-item}
-[Thanh khoản](#thanh-khoản){.nav-item}
+[Thanh khoản và cơ cấu tài sản](#thanh-khoản-và-cơ-cấu-tài-sản){.nav-item}
 
 :::
 
 ::: {.report-section}
 
-# Quy mô - Thị phần
+# Năng lực vốn
 
 ::: {.chart-grid}
 
 :::: {.chart-item}
 ```{r}
-source("charts/tts.R")
-chart_tts
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/tin_dung.R")
-chart_tin_dung
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/huy_dong_von.R")
-chart_huy_dong_von
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/thi_phan_tin_dung.R")
-chart_thi_phan_tin_dung
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/thi_phan_tien_gui.R")
-chart_thi_phan_tien_gui
-```
-::::
-
-:::
-
-:::
-
-::: {.report-section}
-
-# An toàn vốn
-
-::: {.chart-grid}
-
-:::: {.chart-item}
-```{r}
-source("charts/vcsh_tts.R")
-chart_vcsh_tts
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/vcsh_tts_rieng.R")
-chart_vcsh_tts_rieng
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/car.R")
+source("charts/04. car.R")
 chart_car
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/vcsh.R")
+source("charts/05. vcsh.R")
 chart_vcsh
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/von_dieu_le.R")
+source("charts/06. vcsh_tts.R")
+chart_vcsh_tts
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/07. von_dieu_le.R")
 chart_von_dieu_le
 ```
 ::::
+
 
 :::
 
@@ -132,42 +80,89 @@ chart_von_dieu_le
 
 ::: {.report-section}
 
-# Chất lượng tài sản
+# Quy mô và chất lượng tài sản
 
 ::: {.chart-grid}
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_no_xau.R")
+source("charts/08. tts.R")
+chart_tts
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/09. tin_dung.R")
+chart_tin_dung
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/10. thi_phan_tin_dung.R")
+chart_thi_phan_tin_dung2
+```
+::::
+
+:::: {.chart-item}
+```{r}
+chart_thi_phan_tin_dung1
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/11. huy_dong_von.R")
+chart_huy_dong_von
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/12. thi_phan_tien_gui.R")
+chart_thi_phan_tien_gui2
+```
+::::
+
+:::: {.chart-item}
+```{r}
+chart_thi_phan_tien_gui1
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/13. ty_le_no_xau.R")
 chart_ty_le_no_xau
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/quy_mo_no_xau.R")
+source("charts/14. quy_mo_no_xau.R")
 chart_quy_mo_no_xau
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/quy_mo_no_nhom_2.R")
-chart_quy_mo_no_nhom_2
+source("charts/15. ty_le_no_nhom_2.R")
+chart_ty_le_no_nhom2
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_bao_phu_no_xau_rieng.R")
-chart_ty_le_bao_phu_no_xau_rieng
+source("charts/16. chi_phi_dprr.R")
+chart_chi_phi_dprr
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_bao_phu_no_xau_chung.R")
-chart_ty_le_bao_phu_no_xau_chung
+source("charts/17. ty_le_bao_phu_no_xau.R")
+chart_ty_le_bao_phu_no_xau
 ```
 ::::
 
@@ -177,35 +172,42 @@ chart_ty_le_bao_phu_no_xau_chung
 
 ::: {.report-section}
 
-# Lợi nhuận
+# Quản trị điều hành
 
 ::: {.chart-grid}
 
 :::: {.chart-item}
 ```{r}
-source("charts/cltc.R")
-chart_cltc
+source("charts/18. cir.R")
+chart_cir
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/cltc_rieng.R")
-chart_cltc_rieng
+source("charts/19. cltc_binh_quan.R")
+chart_cltc_binh_quan
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/lntt.R")
-chart_lntt
+source("charts/20. lntt_binh_quan.R")
+chart_lntt_binh_quan
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/lntt_rieng.R")
-chart_lntt_rieng
+source("charts/21. chi_phi_nhan_vien_binh_quan.R")
+chart_chi_phi_nhan_vien_binh_quan
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/22. chi_phi_nhan_vien_lntt.R")
+chart_chi_phi_nhan_vien_lntt
 ```
 ::::
 
@@ -217,195 +219,127 @@ chart_lntt_rieng
 
 # Hiệu quả
 
-## ROA, ROE
-
 ::: {.chart-grid}
 
 :::: {.chart-item}
 ```{r}
-source("charts/roa.R")
-chart_roa
+source("charts/23. cltc_rieng.R")
+chart_cltc_rieng
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/roa_rieng.R")
-chart_roa_rieng
+source("charts/24. lntt_rieng.R")
+chart_lntt_rieng
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/roe.R")
-chart_roe
+source("charts/26. co_cau_thu_nhap.R")
+chart_co_cau_thu_nhap1
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/roe_rieng.R")
-chart_roe_rieng
-```
-::::
-
-:::
-
-## Thu từ lãi
-
-::: {.chart-grid}
-
-:::: {.chart-item}
-```{r}
-source("charts/thu_lai.R")
-chart_thu_lai
+source("charts/27. thu_lai_rong.R")
+chart_thu_lai_rong
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_trong_thu_lai.R")
-chart_ty_trong_thu_lai
+source("charts/28. ty_trong_thu_lai_rong.R")
+chart_ty_trong_thu_lai_rong
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_trong_thu_lai_rieng.R")
-chart_ty_trong_thu_lai_rieng
+source("charts/29. lai_du_thu_thu_nhap_lai.R")
+chart_lai_du_thu_thu_nhap_lai
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/nim.R")
+source("charts/30. lai_du_thu_no_nhom_1.R")
+chart_lai_du_thu_no_nhom_1
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/31. co_cau_thu_ngoai_lai.R")
+chart_co_cau_thu_ngoai_lai1
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/32. thu_dv_rong.R")
+chart_thu_dv_rong
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/33. ty_trong_thu_dvr.R")
+chart_ty_trong_thu_dvr
+```
+::::
+
+:::: {.chart-item}
+```{r}
+source("charts/35. nim.R")
 chart_nim
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/nim_rieng.R")
-chart_nim_rieng
-```
-::::
-
-:::
-
-## Thu ngoài lãi
-
-::: {.chart-grid}
-
-:::: {.chart-item}
-```{r}
-source("charts/co_cau_thu_ngoai_lai.R")
-chart_co_cau_thu_ngoai_lai
+source("charts/37. roa.R")
+chart_roa
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_trong_thu_dv.R")
-chart_ty_trong_thu_dv
+source("charts/38. roe.R")
+chart_roe
 ```
 ::::
 
-:::: {.chart-item}
-```{r}
-source("charts/ty_trong_thu_dv_rieng.R")
-chart_ty_trong_thu_dv_rieng
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/thu_dvr.R")
-chart_thu_dvr
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/thu_fx.R")
-chart_thu_fx
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/thu_ck.R")
-chart_thu_ck
-```
-::::
-
-:::
-
-## Chi phí
-
-::: {.chart-grid}
-
-:::: {.chart-item}
-```{r}
-source("charts/cir.R")
-chart_cir
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/cir_rieng.R")
-chart_cir_rieng
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/dprr.R")
-chart_dprr
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/dprr_rieng.R")
-chart_dprr_rieng
-```
-::::
 :::
 
 :::
 
 ::: {.report-section}
 
-# Thanh khoản
+# Thanh khoản và cơ cấu tài sản
 
 ::: {.chart-grid}
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_du_no_huy_dong.R")
+source("charts/39. ty_le_du_no_huy_dong.R")
 chart_ty_le_du_no_huy_dong
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_du_no_tdh.R")
-chart_ty_le_du_no_tdh
+source("charts/41. casa.R")
+chart_casa
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/ty_le_du_no_tdh_rieng.R")
-chart_ty_le_du_no_tdh_rieng
-```
-::::
-
-:::: {.chart-item}
-```{r}
-source("charts/ty_le_casa.R")
-chart_ty_le_casa
+source("charts/42. cho_vay_tdh_du_no.R")
+chart_cho_vay_tdh_du_no
 ```
 ::::
 

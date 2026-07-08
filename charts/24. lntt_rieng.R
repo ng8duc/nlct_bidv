@@ -28,7 +28,7 @@ df1 <- df1 %>%
   mutate(name = factor(name, levels = order_names))
 
 
-highchart() %>%
+chart_lntt_rieng <- highchart() %>%
   hc_yAxis_multiples(
     list(
       title = list(text = "Lợi nhuận trước thuế (nghìn tỷ đồng)"),

@@ -19,7 +19,7 @@ df2 <- df %>%
 df1 <- df1 %>% 
   mutate(name = factor(name, levels = order_names))
 
-highchart() %>% 
+chart_nim <- highchart() %>% 
   hc_yAxis(
     title = list(text = "%"),
     gridLineColor = "#e6e6e6"

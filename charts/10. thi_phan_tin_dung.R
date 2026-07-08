@@ -70,12 +70,14 @@ plot_thi_phan_tin_dung <- function(df) {
         )
       )
     ) %>%
-    hc_add_theme(hc_theme_google()) %>%
+    hc_add_theme(hc_theme_smpl()) %>%
     hc_title(
+      align = "center",
       text = "Thị phần tín dụng của các NHTM",
       style = list(fontWeight = "bold", fontSize = "16px", color = "#333333")
     ) %>%
     hc_subtitle(
+      align = "center",
       text = str_glue("Ngày số liệu: {strftime(max(df$yq) + months(3) - days(1), format = '%d/%m/%Y')}"),
       style = list(fontStyle = "italic", color = "#666666")
     )

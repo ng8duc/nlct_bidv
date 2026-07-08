@@ -1,5 +1,5 @@
 ---
-title: "Chỉ tiêu tài chính các NHTM"
+title: "Năng lực cạnh tranh BIDV"
 format: 
   html:
     theme: 
@@ -43,7 +43,7 @@ invisible(list2env(all_tables, envir = .GlobalEnv))
 
 # Năng lực vốn
 
-::: {.chart-grid}
+::: {.chart-grid2}
 
 :::: {.chart-item}
 ```{r}
@@ -82,7 +82,7 @@ chart_von_dieu_le
 
 # Quy mô và chất lượng tài sản
 
-::: {.chart-grid}
+::: {.chart-grid1}
 
 :::: {.chart-item}
 ```{r}
@@ -90,6 +90,10 @@ source("charts/08. tts.R")
 chart_tts
 ```
 ::::
+
+:::
+
+::: {.chart-grid3}
 
 :::: {.chart-item}
 ```{r}
@@ -133,15 +137,15 @@ chart_thi_phan_tien_gui1
 
 :::: {.chart-item}
 ```{r}
-source("charts/13. ty_le_no_xau.R")
-chart_ty_le_no_xau
+source("charts/14. quy_mo_no_xau.R")
+chart_quy_mo_no_xau
 ```
 ::::
 
 :::: {.chart-item}
 ```{r}
-source("charts/14. quy_mo_no_xau.R")
-chart_quy_mo_no_xau
+source("charts/13. ty_le_no_xau.R")
+chart_ty_le_no_xau
 ```
 ::::
 
@@ -151,6 +155,10 @@ source("charts/15. ty_le_no_nhom_2.R")
 chart_ty_le_no_nhom2
 ```
 ::::
+
+:::
+
+::: {.chart-grid2}
 
 :::: {.chart-item}
 ```{r}
@@ -174,7 +182,7 @@ chart_ty_le_bao_phu_no_xau
 
 # Quản trị điều hành
 
-::: {.chart-grid}
+::: {.chart-grid2}
 
 :::: {.chart-item}
 ```{r}
@@ -219,7 +227,7 @@ chart_chi_phi_nhan_vien_lntt
 
 # Hiệu quả
 
-::: {.chart-grid}
+::: {.chart-grid2}
 
 :::: {.chart-item}
 ```{r}
@@ -320,7 +328,7 @@ chart_roe
 
 # Thanh khoản và cơ cấu tài sản
 
-::: {.chart-grid}
+::: {.chart-grid3}
 
 :::: {.chart-item}
 ```{r}

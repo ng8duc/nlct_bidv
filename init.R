@@ -49,20 +49,3 @@ all_tables <- tryCatch({
 # 5. Unpack toàn bộ dataframe trong list ra môi trường Global (.GlobalEnv)
 message(paste0("[+] Đang giải nén ", length(all_tables), " bảng dữ liệu vào môi trường làm việc (Global)..."))
 invisible(list2env(all_tables, envir = .GlobalEnv))
-
-# Liệt kê các bảng dữ liệu đã nạp thành công
-table_names <- names(all_tables)
-message("\n=== CÁC BẢNG DỮ LIỆU ĐÃ NẠP THÀNH CÔNG ===")
-for (name in table_names) {
-  if (exists(name, envir = .GlobalEnv)) {
-    df_obj <- get(name, envir = .GlobalEnv)
-    message(sprintf("  - %-30s: %d dòng, %d cột", name, nrow(df_obj), ncol(df_obj)))
-  }
-}
-
-message("\n=======================================================================")
-message(" SẴN SÀNG! Bạn có thể bắt đầu code và chạy thử các file trong charts/")
-message(" Ví dụ để vẽ biểu đồ Tổng tài sản (charts/tts.R):")
-message("   source('charts/tts.R')")
-message("   chart_tts")
-message("=======================================================================")

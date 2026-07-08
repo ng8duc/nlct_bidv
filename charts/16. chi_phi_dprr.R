@@ -1,36 +1,10 @@
-df_slld <- df_so_luong_lao_dong %>% 
-  mutate(date = as.Date(date)) %>% 
-  pivot_longer(-date, names_to = "name", values_to = "value")
-
-df_slld2 <- df_slld %>% 
-  filter(month(date) == 12) %>% 
-  mutate(target_year = year(date) + 1) %>% 
-  select(-date) %>% 
-  rename_with(
-    .fn = ~ str_c("q4_prev_", .x),
-    .cols = -c(name, target_year)
-  )
-
-df_slld <- df_slld %>% 
-  mutate(current_year = year(date)) %>% 
-  left_join(df_slld2, by = c("name" = "name", "current_year" = "target_year")) %>% 
-  mutate(ldbq = (value + q4_prev_value)/2) %>% 
-  mutate(yq = floor_date(date, unit = "quarter")) %>% 
-  select(yq, name, ldbq)
-
-
-df <- df_chenh_lech_thu_chi %>% 
-  mutate(yq = as.Date(yq)) %>% 
+df <- df_chi_phi_dprr_tin_dung %>% 
+  mutate(yq = as.Date(yq),
+         value = abs(value)) %>% 
   filter(yq %in% c(CUR_DATE, REF_DATE))
 
 df <- df %>% 
   filter(nchar(name) <= 4)
-
-df <- df %>% 
-  left_join(df_slld, by = c("yq", "name"))
-
-df <- df %>% 
-  mutate(value = value/ldbq)
 
 df <- df %>%
   group_by(name) %>%
@@ -42,7 +16,7 @@ df <- df %>%
 
 df1 <- df %>% 
   filter(yq == CUR_DATE) %>% 
-  arrange(desc(value))
+  arrange(value)
 
 order_names <- df1$name
 
@@ -58,7 +32,7 @@ df1 <- df1 %>%
 highchart() %>%
   hc_yAxis_multiples(
     list(
-      title = list(text = "Chênh lệch thu chi (tỷ đồng)"),
+      title = list(text = "Chi phí DPRR tín dụng (nghìn tỷ đồng)"),
       gridLineColor = "#e6e6e6"
     ),
     list(
@@ -75,9 +49,9 @@ highchart() %>%
   ) %>%
   hc_add_series(
     data = df2,
-    mapping = hcaes(x = name, y = value),
+    mapping = hcaes(x = name, y = value / 1000),
     type = "column",
-    name = ifelse(month(REF_DATE) == 10, year(REF_DATE), str_glue("{month(REF_DATE)+2}T/year(CUR_DATE)")),
+    name = str_glue("{strftime(max(df2$yq) + months(3) - days(1), format = '%d/%m/%Y')}"),
     color = "#006b68",
     yAxis = 0,
     tooltip = list(
@@ -86,9 +60,9 @@ highchart() %>%
   ) %>%
   hc_add_series(
     data = df1,
-    mapping = hcaes(x = name, y = value),
+    mapping = hcaes(x = name, y = value / 1000),
     type = "column",
-    name = ifelse(month(CUR_DATE) == 10, year(CUR_DATE), str_glue("{month(CUR_DATE)+2}T/year(CUR_DATE)")),
+    name = str_glue("{strftime(max(df1$yq) + months(3) - days(1), format = '%d/%m/%Y')}"),
     color = "#fdb71a",
     yAxis = 0,
     dataLabels = list(
@@ -97,7 +71,7 @@ highchart() %>%
       style = list(fontSize = "10px")
     ),
     tooltip = list(
-      valueSuffix = " tỷ đồng"
+      valueSuffix = " nghìn tỷ đồng"
     )
   ) %>% 
   hc_add_series(
@@ -110,7 +84,7 @@ highchart() %>%
     yAxis = 1,
     dataLabels = list(
       enabled = TRUE,
-      format = "{point.y:,.1f}%",
+      format = "{point.y:,.2f}%",
       style = list(fontSize = "10px")
     ),
     tooltip = list(
@@ -132,6 +106,6 @@ highchart() %>%
   hc_chart(zoomType = "x") %>% 
   hc_title(
     align = "center",
-    text = "Chênh lệch thu chi bình quân/người/năm của 11 NHTM quy mô lớn",
+    text = "Vốn chủ sở hữu của 11 NHTM quy mô lớn",
     style = list(fontWeight = "bold", fontSize = "16px", color = "#333333")
   )

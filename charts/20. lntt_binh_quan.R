@@ -97,7 +97,7 @@ highchart() %>%
       style = list(fontSize = "10px")
     ),
     tooltip = list(
-      valueSuffix = " nghìn tỷ đồng"
+      valueSuffix = " tỷ đồng"
     )
   ) %>% 
   hc_add_series(

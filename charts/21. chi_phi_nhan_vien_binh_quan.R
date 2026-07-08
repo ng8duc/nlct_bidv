@@ -19,7 +19,7 @@ df_slld <- df_slld %>%
   select(yq, name, ldbq)
 
 
-df <- df_chenh_lech_thu_chi %>% 
+df <- df_chi_phi_nhan_vien %>% 
   mutate(yq = as.Date(yq)) %>% 
   filter(yq %in% c(CUR_DATE, REF_DATE))
 
@@ -30,7 +30,7 @@ df <- df %>%
   left_join(df_slld, by = c("yq", "name"))
 
 df <- df %>% 
-  mutate(value = value/ldbq)
+  mutate(value = value/ldbq/12*1000)
 
 df <- df %>%
   group_by(name) %>%
@@ -58,7 +58,7 @@ df1 <- df1 %>%
 highchart() %>%
   hc_yAxis_multiples(
     list(
-      title = list(text = "Chênh lệch thu chi (tỷ đồng)"),
+      title = list(text = "Chi phí nhân viên (triệu đồng)"),
       gridLineColor = "#e6e6e6"
     ),
     list(
@@ -81,7 +81,7 @@ highchart() %>%
     color = "#006b68",
     yAxis = 0,
     tooltip = list(
-      valueSuffix = " nghìn tỷ đồng"
+      valueSuffix = " triệu đồng"
     )
   ) %>%
   hc_add_series(
@@ -97,7 +97,7 @@ highchart() %>%
       style = list(fontSize = "10px")
     ),
     tooltip = list(
-      valueSuffix = " tỷ đồng"
+      valueSuffix = " nghìn tỷ đồng"
     )
   ) %>% 
   hc_add_series(
@@ -132,6 +132,6 @@ highchart() %>%
   hc_chart(zoomType = "x") %>% 
   hc_title(
     align = "center",
-    text = "Chênh lệch thu chi bình quân/người/năm của 11 NHTM quy mô lớn",
+    text = "Chi phí nhân viên bình quân/người/tháng của 11 NHTM quy mô lớn",
     style = list(fontWeight = "bold", fontSize = "16px", color = "#333333")
   )

@@ -21,3 +21,5 @@ start here.R
 
 # R targets cache
 /_targets/
+
+.env

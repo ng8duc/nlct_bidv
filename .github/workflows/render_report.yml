@@ -43,7 +43,6 @@ jobs:
       - name: Create .env from example
         run: |
           cp .env.example .env
-          head -n 3 .env > .env.tmp && mv .env.tmp .env
 
       - name: Run Targets Pipeline (Fetch DB & Render)
         env:

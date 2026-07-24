@@ -41,11 +41,6 @@ pull_from_d1 <- function(db_name, table_name = NULL, query = NULL, chunk_size = 
       warning("Không nhận được phản hồi từ wrangler ở chunk này. Dừng lại tại đây.")
       break
     }
-
-    if (!is.null(attr(res, "status")) && attr(res, "status") != 0) {
-      message("DEBUG wrangler exit status: ", attr(res, "status"))
-      message("DEBUG wrangler output:\n", paste(res, collapse = "\n"))
-    }
     
     json_output <- paste(res, collapse = "\n")
     parsed_data <- tryCatch({
